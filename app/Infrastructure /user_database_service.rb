@@ -14,4 +14,14 @@ class UserDatabaseService
         end
     end
 
+    def find(param_id)
+        user = User.find(param_id)
+
+        if !user.nil?
+            { status: 'SUCCESS', data: user }
+        else
+            { status: 'ERROR', data: user.errors }
+        end
+    end
+
 end
