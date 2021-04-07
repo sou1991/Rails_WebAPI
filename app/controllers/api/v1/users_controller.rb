@@ -15,6 +15,7 @@ module Api
             end
 
             def index
+            def show
                 responce = @search_user.execute(params[:id])
                 render json: responce
             end
