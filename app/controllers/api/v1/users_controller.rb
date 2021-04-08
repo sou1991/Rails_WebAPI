@@ -9,6 +9,17 @@ module Api
                 super
             end
 
+            def login
+                responce = @search_user.execute(params[:id])
+                if !responce.nil?
+                    session[:nickname] = responce[:data][:name]
+                    require 'byebug'; byebug
+                    { status: 'SUCCESS' }
+                else
+                    { status: 'ERROR' }
+                end
+            end
+
             def create
                 responce = @create_user.execute(req_post_params)
                 render json: responce
