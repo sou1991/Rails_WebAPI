@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :technical_articles
     with_options presence: true do
         validates :name
         validates :age

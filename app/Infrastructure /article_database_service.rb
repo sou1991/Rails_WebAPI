@@ -16,4 +16,9 @@ class ArticleDatabaseService
             { status: 'ERROR', data: article.errors }
         end
     end
+
+    def find_all
+        article = TechnicalArticle.order(created_at: :desc)
+        { status: 'SUCCESS', data: article }
+    end
 end
